@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Photos | Family Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./asset/css/upload.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <i class="fas fa-home"></i>
+            <span>Portfolio</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="upload.html" class="active">Upload</a></li>
+        </ul>
+    </nav>
+
+    <!-- Upload Header -->
+    <section class="upload-header">
+        <h1>Upload Family Photos</h1>
+        <p>Share your precious moments with the family. Upload up to 30 photos at once!</p>
+    </section>
+
+    <!-- Upload Container -->
+    <section class="upload-container">
+        <div class="upload-form">
+            <h2 class="section-title">Add New Photos</h2>
+            
+            <form id="upload-form">
+                <div class="form-group">
+                    <label for="photo-category">Category *</label>
+                    <select id="photo-category" class="form-control" required>
+                        <option value="">Select a category</option>
+                        <option value="vacation">Vacation</option>
+                        <option value="celebration">Celebration</option>
+                        <option value="everyday">Everyday Moments</option>
+                        <option value="holiday">Holiday</option>
+                        <option value="milestone">Milestone</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Upload Photos *</label>
+                    <div class="upload-area" id="upload-area">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <h3>Drag & Drop or Click to Upload</h3>
+                        <p>JPEG, PNG, or GIF (Max 2MB each, up to 30 photos)</p>
+                        <div class="browse-btn">Browse Files</div>
+                        <input type="file" id="file-input" accept="image/jpeg,image/png,image/gif" multiple>
+                    </div>
+                </div>
+
+                <!-- Selected Files List -->
+                <div class="selected-files" id="selected-files" style="display: none;">
+                    <h4>Selected Files (<span id="file-count">0</span>/30):</h4>
+                    <ul class="file-list" id="file-list">
+                        <!-- File items will be added here -->
+                    </ul>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="progress-container" id="progress-container">
+                    <div class="progress-bar" id="progress-bar"></div>
+                    <div class="progress-text" id="progress-text">Processing: 0%</div>
+                </div>
+
+                <!-- Batch Progress -->
+                <div class="batch-progress" id="batch-progress">
+                    <h4>Upload Progress</h4>
+                    <div class="batch-progress-bar">
+                        <div class="batch-progress-fill" id="batch-progress-fill"></div>
+                    </div>
+                    <div class="batch-progress-text" id="batch-progress-text">0/0 photos uploaded</div>
+                </div>
+
+                <button type="submit" class="submit-btn" id="submit-btn" disabled>
+                    <i class="fas fa-upload"></i> Upload All Photos
+                </button>
+
+                <div class="success-message" id="success-message">
+                    <i class="fas fa-check-circle"></i> 
+                    <span id="success-text">Photos uploaded successfully!</span>
+                    <a href="gallery.html" style="color: #4caf50; text-decoration: underline; margin-left: 10px;">View in Gallery</a>
+                </div>
+
+                <div class="error-message" id="error-message">
+                    <i class="fas fa-exclamation-circle"></i> 
+                    <span id="error-text">Error uploading photos. Please try again.</span>
+                </div>
+            </form>
+        </div>
+
+        <div class="upload-preview">
+            <h2 class="section-title">Preview</h2>
+            
+            <div class="preview-container">
+                <div class="preview-placeholder" id="preview-placeholder">
+                    <i class="fas fa-image"></i>
+                    <p>No image selected</p>
+                </div>
+                <img class="preview-image" id="preview-image" src="" alt="Preview">
+                <button class="file-remove" id="file-remove" title="Remove Image">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div class="preview-nav">
+                <button class="preview-nav-btn" id="prev-btn" disabled>
+                    <i class="fas fa-chevron-left"></i> Previous
+                </button>
+                <div class="preview-counter" id="preview-counter">0/0</div>
+                <button class="preview-nav-btn" id="next-btn" disabled>
+                    Next <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <div class="file-info" id="file-info">
+                <div class="file-name" id="file-name">No file selected</div>
+                <div class="file-size" id="file-size">-</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Uploads -->
+    <section class="recent-uploads">
+        <h2 class="section-title">Recently Uploaded</h2>
+        <div class="uploads-grid" id="recent-uploads-grid">
+            <!-- Recent uploads will be populated by JavaScript -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+  <footer id="contact">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Contact Me</h3>
+          <p><i class="fas fa-map-marker-alt"></i>Saibaba</p>
+          <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+          <p><i class="fas fa-envelope"></i> hello@familyportfolio.com</p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <a href="index.html">Home</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="upload.html">Upload Photos</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="footer-section">
+          <h3>Connect With Us</h3>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-pinterest"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2025 Family Portfolio. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+    <script src="./asset/js/upload.js"></script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Chat</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./asset/css/chat.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <i class="fas fa-home"></i>
+            <span>Chat</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="upload.html">Upload</a></li>
+            <li><a href="chat.html" class="active">Family Chat</a></li>
+        </ul>
+    </nav>
+
+    <!-- Chat Header -->
+    <section class="chat-header">
+        <h1>Family Chat Room</h1>
+    </section>
+
+    <!-- Login Modal -->
+    <div class="login-modal" id="login-modal">
+        <div class="login-form">
+            <h2>Join Family Chat</h2>
+            <p>Enter your name to start chatting with family members</p>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="user-name">Your Name</label>
+                    <input type="text" id="user-name" class="form-control" placeholder="Enter your name" required maxlength="20">
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">
+                    <i class="fas fa-sign-in-alt"></i> Join Chat
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Chat Container -->
+    <div class="chat-container" id="chat-container" style="display: none;">
+        <!-- Chat Info Bar -->
+        <div class="chat-info">
+            <div class="online-count">
+                <div class="online-dot"></div>
+                <span id="online-count">1 person online</span>
+            </div>
+            <div class="user-info">
+                <span class="user-name" id="current-user">You</span>
+                <button class="leave-btn" id="leave-btn">
+                    <i class="fas fa-sign-out-alt"></i> Leave
+                </button>
+            </div>
+        </div>
+
+        <!-- Messages Container -->
+        <div class="messages-container" id="messages-container">
+            <div class="empty-chat">
+                <i class="fas fa-comments"></i>
+                <h3>No messages yet</h3>
+                <p>Start the conversation with your family!</p>
+            </div>
+        </div>
+
+        <!-- Typing Indicator -->
+        <div class="typing-indicator" id="typing-indicator">
+            <span id="typing-user">Someone</span> is typing
+            <span class="typing-dots">
+                <span>.</span><span>.</span><span>.</span>
+            </span>
+        </div>
+
+        <!-- Input Area -->
+        <div class="input-area">
+            <input type="text" class="message-input" id="message-input" placeholder="Type your message..." disabled>
+            <button class="send-btn" id="send-btn" disabled>
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+    <script src="./asset/js/chat.js"></script>
+</body>
+</html>
